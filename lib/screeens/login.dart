@@ -3,8 +3,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:taxi_app/misc.dart';
 import 'package:taxi_app/screeens/signup.dart';
+import 'package:taxi_app/widgets/custom_logo_button.dart';
+import 'package:taxi_app/widgets/space_widget.dart';
+import 'package:taxi_app/widgets/text_field.dart';
 
 class Login extends StatelessWidget {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,82 +18,54 @@ class Login extends StatelessWidget {
       body: Align(
         child: ScrollConfiguration(
           behavior: MyBehavior(),
-                  child: ListView(
+          child: ListView(
             shrinkWrap: true,
-            // mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Center(
                 child: Icon(
                   Icons.pin_drop_rounded,
                   size: 100,
-                  color: Colors.indigo,
+                  color: Colors.indigo[900],
                 ),
               ),
               Center(
                 child: Text(
-                  "Taxi",
+                  "Fijo Taxi",
                   style: GoogleFonts.lato(
-                      color: Colors.indigo,
+                      color: Colors.indigo[900],
                       fontWeight: FontWeight.bold,
                       fontSize: 35),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-                       Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
                 child: Align(
                   alignment: Alignment.bottomLeft,
                   child: Text(
                     "Login to your account",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                        fontSize: 22,
-                        color: Colors.grey[600],
-                        ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Card(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        focusedBorder: InputBorder.none,
-                        enabledBorder: InputBorder.none,
-                        errorBorder: InputBorder.none,
-                        disabledBorder: InputBorder.none,
-                        hintText: "Email",
-                      ),
+                      fontSize: 22,
+                      color: Colors.grey[600],
                     ),
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Card(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: TextField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        focusedBorder: InputBorder.none,
-                        enabledBorder: InputBorder.none,
-                        errorBorder: InputBorder.none,
-                        disabledBorder: InputBorder.none,
-                        hintText: "Password",
-                      ),
-                    ),
-                  ),
-                ),
+              CustomTextField(
+                header: "Email",
+                controller: _emailController,
+              ),
+              CustomTextField(
+                header: "Password",
+                controller: _passwordController,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
                 child: Align(
                   alignment: Alignment.bottomRight,
                   child: Text(
@@ -109,14 +87,15 @@ class Login extends StatelessWidget {
                         child: RaisedButton(
                             onPressed: () {},
                             child: Text("Sign in",
-                                style: GoogleFonts.lato(color: Colors.grey[100])),
-                            color: Colors.indigo),
+                                style:
+                                    GoogleFonts.lato(color: Colors.grey[100])),
+                            color: Colors.indigo[900]),
                       ),
                     ),
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Center(
@@ -128,60 +107,38 @@ class Login extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 23),
                 child: Row(
                   children: [
-                    Expanded(
-                      child: Container(
-                        height: 50,
-                        child: Card(
-                          child: Icon(
-                            LineAwesomeIcons.google_logo,
-                            size: 30,
-                            color: Colors.red,
-                          ),
-                        ),
-                      ),
+                    const CustomLogoButton(
+                        icon: LineAwesomeIcons.google_logo, color: Colors.red),
+                    CustomLogoButton(
+                      icon: LineAwesomeIcons.facebook,
+                      color: Colors.blue[900],
                     ),
-                    Expanded(
-                      child: Container(
-                        height: 50,
-                        child: Card(
-                          child: Icon(
-                            LineAwesomeIcons.facebook,
-                            size: 30,
-                            color: Colors.blue[900],
-                          ),
-                        ),
-                      ),
+                    const CustomLogoButton(
+                      icon: LineAwesomeIcons.google_logo,
+                      color: Colors.blue,
                     ),
-                    Expanded(
-                      child: Container(
-                        height: 50,
-                        child: Card(
-                          child: Icon(
-                            LineAwesomeIcons.twitter,
-                            size: 30,
-                            color: Colors.blue,
-                          ),
-                        ),
-                      ),
-                    )
                   ],
                 ),
               ),
-              SizedBox(
-                height: 25,
+              const SizedBox(
+                height: 20,
               ),
               Center(
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.pushReplacement((context),
-                        MaterialPageRoute(builder: (context) => SignUp()));
+                    Navigator.pushReplacement(
+                      (context),
+                      MaterialPageRoute(
+                        builder: (context) => SignUp(),
+                      ),
+                    );
                   },
                   child: RichText(
                     text: TextSpan(
@@ -191,7 +148,7 @@ class Login extends StatelessWidget {
                           TextSpan(
                             text: "Sign up",
                             style: TextStyle(
-                          fontSize: 17,
+                                fontSize: 17,
                                 decoration: TextDecoration.underline,
                                 color: Colors.indigo),
                           )

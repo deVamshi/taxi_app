@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override
@@ -18,7 +17,7 @@ class WelcomeScreen extends StatelessWidget {
               color: Colors.grey[100],
             ),
             Text(
-              "Taxi",
+              "Fijo Taxi",
               style: GoogleFonts.lato(
                   color: Colors.grey[100],
                   fontWeight: FontWeight.bold,
