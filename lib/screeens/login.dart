@@ -13,6 +13,7 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       backgroundColor: Colors.grey[100],
       body: Align(
@@ -85,7 +86,10 @@ class Login extends StatelessWidget {
                       child: Container(
                         height: 40,
                         child: RaisedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                               //  authentications.signin("vamsubala@gmail.com","vamsi199");
+                             // It will print signed suceessfully and uid is balabla
+                            },
                             child: Text("Sign in",
                                 style:
                                     GoogleFonts.lato(color: Colors.grey[100])),

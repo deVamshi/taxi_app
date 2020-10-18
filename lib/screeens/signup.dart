@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:taxi_app/misc.dart';
 import 'package:taxi_app/screeens/login.dart';
 import 'package:taxi_app/widgets/custom_logo_button.dart';
-import 'package:taxi_app/widgets/space_widget.dart';
 import 'package:taxi_app/widgets/text_field.dart';
 
 class SignUp extends StatelessWidget {
@@ -80,7 +79,10 @@ class SignUp extends StatelessWidget {
                       child: Container(
                         height: 40,
                         child: RaisedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              //  authentications.signup("vamsubala@gmail.com","vamsi199");
+                              // It will print signed suceessfully and uid is balabla
+                            },
                             child: Text("Sign Up",
                                 style:
                                     GoogleFonts.lato(color: Colors.grey[100])),
