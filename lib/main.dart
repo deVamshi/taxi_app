@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:taxi_app/screeens/login.dart';
-import 'package:taxi_app/screeens/welcome_screen.dart';
-
-void main() {
+import 'package:firebase_core/firebase_core.dart';
+Future<void> main() async {
+ WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 

@@ -4,26 +4,29 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:taxi_app/misc.dart';
 import 'package:taxi_app/screeens/login.dart';
 
+import '../controllers/authentications.dart';
+
 class SignUp extends StatelessWidget {
+  Authentications authentications = Authentications();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[100],
       body: Align(
-              child: ScrollConfiguration(
-                behavior: MyBehavior(),
-                              child: ListView(
-                  shrinkWrap: true,
-          // mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Center(
+        child: ScrollConfiguration(
+          behavior: MyBehavior(),
+          child: ListView(
+            shrinkWrap: true,
+            // mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Center(
                 child: Icon(
                   Icons.pin_drop_rounded,
                   size: 100,
                   color: Colors.indigo,
                 ),
-            ),
-            Center(
+              ),
+              Center(
                 child: Text(
                   "Taxi",
                   style: GoogleFonts.lato(
@@ -31,25 +34,26 @@ class SignUp extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       fontSize: 35),
                 ),
-            ),
-            SizedBox(
+              ),
+              SizedBox(
                 height: 20,
-            ),
-                        Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
                 child: Align(
                   alignment: Alignment.bottomLeft,
                   child: Text(
                     "Create your account",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                        fontSize: 22,
-                        color: Colors.grey[600],
-                        ),
+                      fontSize: 22,
+                      color: Colors.grey[600],
+                    ),
                   ),
                 ),
               ),
-            Padding(
+              Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Card(
                   child: Padding(
@@ -67,8 +71,8 @@ class SignUp extends StatelessWidget {
                     ),
                   ),
                 ),
-            ),
-            Padding(
+              ),
+              Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Card(
                   child: Padding(
@@ -86,8 +90,8 @@ class SignUp extends StatelessWidget {
                     ),
                   ),
                 ),
-            ),
-            Padding(
+              ),
+              Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Card(
                   child: Padding(
@@ -106,11 +110,11 @@ class SignUp extends StatelessWidget {
                     ),
                   ),
                 ),
-            ),
-            SizedBox(
+              ),
+              SizedBox(
                 height: 20,
-            ),
-            Padding(
+              ),
+              Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 23),
                 child: Row(
                   children: [
@@ -118,19 +122,24 @@ class SignUp extends StatelessWidget {
                       child: Container(
                         height: 40,
                         child: RaisedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                            
+                              //  authentications.signup("vamsubala@gmail.com","vamsi199");
+                              // It will print signed suceessfully and uid is balabla
+                            },
                             child: Text("Sign Up",
-                                style: GoogleFonts.lato(color: Colors.grey[100])),
+                                style:
+                                    GoogleFonts.lato(color: Colors.grey[100])),
                             color: Colors.indigo),
                       ),
                     ),
                   ],
                 ),
-            ),
-            SizedBox(
+              ),
+              SizedBox(
                 height: 20,
-            ),
-            Center(
+              ),
+              Center(
                 child: Text(
                   "- Or Sign up with -",
                   style: TextStyle(
@@ -138,11 +147,11 @@ class SignUp extends StatelessWidget {
                     color: Colors.grey,
                   ),
                 ),
-            ),
-            SizedBox(
+              ),
+              SizedBox(
                 height: 20,
-            ),
-            Padding(
+              ),
+              Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 23),
                 child: Row(
                   children: [
@@ -184,15 +193,15 @@ class SignUp extends StatelessWidget {
                     )
                   ],
                 ),
-            ),
-            SizedBox(
+              ),
+              SizedBox(
                 height: 25,
-            ),
-            Center(
+              ),
+              Center(
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.pushReplacement(
-                        (context), MaterialPageRoute(builder: (context) => Login()));
+                    Navigator.pushReplacement((context),
+                        MaterialPageRoute(builder: (context) => Login()));
                   },
                   child: RichText(
                     text: TextSpan(
@@ -202,17 +211,17 @@ class SignUp extends StatelessWidget {
                           TextSpan(
                             text: "Sign in",
                             style: TextStyle(
-                              fontSize: 17,
+                                fontSize: 17,
                                 decoration: TextDecoration.underline,
                                 color: Colors.indigo),
                           )
                         ]),
                   ),
                 ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
-              ),
       ),
     );
   }
