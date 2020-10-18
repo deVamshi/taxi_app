@@ -1,9 +1,9 @@
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-
 class Authentications {
   String _result = "";
+  int status;
   FirebaseAuth _auth = FirebaseAuth.instance;
 
   signin(String email, String password) async {
@@ -33,24 +33,25 @@ class Authentications {
     }
   }
 
-  signup(String email, String password) async {
+  Future<int> signup(String email, String password) async {
     try {
       await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
 
       final User user = _auth.currentUser;
       print("sucessfully signed up with user uid ${user.uid}");
+      return 0; // for succesfull registration
       //  Navigator.pushReplacement(
       //     context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
-        _result = 'The password provided is too weak.';
+        status = 1; //'The password provided is too weak.';
       } else if (e.code == 'email-already-in-use') {
-        _result = 'The email is already registered';
+        status = -1; //'The email is already registered';
       }
       print(_result);
 
-      return _result;
+      return status;
     } catch (e) {
       print(e);
     }
@@ -83,17 +84,13 @@ class Authentications {
 
       final User user = authresult.user;
       print("sucessfully signed in with google with uid${user.uid}");
-    }on FirebaseAuthException catch(e){
+    } on FirebaseAuthException catch (e) {
       if (e.code == 'user-disabled') {
         _result = 'User disabled contact administrator-Vamsi';
-      } 
+      }
       print(_result);
-    }
-     catch (e) {
+    } catch (e) {
       print("something error occured $e");
     }
   }
-
-
-
 }

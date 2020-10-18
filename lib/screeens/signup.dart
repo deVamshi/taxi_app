@@ -82,6 +82,9 @@ class SignUp extends StatelessWidget {
                             onPressed: () {
                               //  authentications.signup("vamsubala@gmail.com","vamsi199");
                               // It will print signed suceessfully and uid is balabla
+                              print("email ${emailController.text}");
+                              print("password ${password1Controller.text}");
+                              // int res = Authentications().signup(emailC, password)
                             },
                             child: Text("Sign Up",
                                 style:
