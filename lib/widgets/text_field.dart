@@ -14,6 +14,7 @@ class CustomTextField extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: TextField(
+            obscureText: header != 'Email' ? true : false,
             controller: controller,
             decoration: InputDecoration(
                 border: InputBorder.none,
