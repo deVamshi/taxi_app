@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:taxi_app/controllers/authentications.dart';
 import 'package:taxi_app/misc.dart';
+import 'package:taxi_app/screeens/home_screen.dart';
 import 'package:taxi_app/screeens/login.dart';
+import 'package:taxi_app/screeens/welcome_screen.dart';
 import 'package:taxi_app/widgets/custom_logo_button.dart';
 import 'package:taxi_app/widgets/text_field.dart';
 
@@ -65,7 +68,7 @@ class SignUp extends StatelessWidget {
                 controller: password1Controller,
               ),
               CustomTextField(
-                header: "Password",
+                header: "Confirm Password",
                 controller: password2Controller,
               ),
               const SizedBox(
@@ -79,9 +82,25 @@ class SignUp extends StatelessWidget {
                       child: Container(
                         height: 40,
                         child: RaisedButton(
-                            onPressed: () {
+                            onPressed: () async {
                               //  authentications.signup("vamsubala@gmail.com","vamsi199");
                               // It will print signed suceessfully and uid is balabla
+                              print("email ${emailController.text}");
+                              print("password ${password1Controller.text}");
+                              // int res = Authentications().signup(emailC, password)
+                              int res = await Authentications().signup(
+                                  emailController.text.trim(),
+                                  password1Controller.text.trim());
+                              if (res == 0) {
+                                Navigator.push(
+                                  (context),
+                                  MaterialPageRoute(
+                                    builder: (context) => HomePage(),
+                                  ),
+                                );
+                              } else {
+                                print('res is $res');
+                              }
                             },
                             child: Text("Sign Up",
                                 style:
@@ -118,7 +137,7 @@ class SignUp extends StatelessWidget {
                       color: Colors.blue[900],
                     ),
                     const CustomLogoButton(
-                      icon: LineAwesomeIcons.google_logo,
+                      icon: LineAwesomeIcons.twitter,
                       color: Colors.blue,
                     ),
                   ],
@@ -135,17 +154,18 @@ class SignUp extends StatelessWidget {
                   },
                   child: RichText(
                     text: TextSpan(
-                        text: "Already a member?  ",
-                        style: TextStyle(color: Colors.grey),
-                        children: <TextSpan>[
-                          TextSpan(
-                            text: "Sign in",
-                            style: TextStyle(
-                                fontSize: 17,
-                                decoration: TextDecoration.underline,
-                                color: Colors.indigo),
-                          )
-                        ]),
+                      text: "Already a member?  ",
+                      style: TextStyle(color: Colors.grey),
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: "Sign in",
+                          style: TextStyle(
+                              fontSize: 17,
+                              decoration: TextDecoration.underline,
+                              color: Colors.indigo),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               )

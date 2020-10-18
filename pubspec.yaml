@@ -31,11 +31,12 @@ dependencies:
   firebase_core: ^0.5.0+1
   google_fonts: ^1.1.1
   line_awesome_flutter: ^1.0.1
+  google_sign_in: ^4.5.5
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  google_sign_in: ^4.5.5
+ 
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

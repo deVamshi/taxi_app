@@ -4,7 +4,6 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:taxi_app/misc.dart';
 import 'package:taxi_app/screeens/signup.dart';
 import 'package:taxi_app/widgets/custom_logo_button.dart';
-import 'package:taxi_app/widgets/space_widget.dart';
 import 'package:taxi_app/widgets/text_field.dart';
 
 class Login extends StatelessWidget {
@@ -125,7 +124,7 @@ class Login extends StatelessWidget {
                       color: Colors.blue[900],
                     ),
                     const CustomLogoButton(
-                      icon: LineAwesomeIcons.google_logo,
+                      icon: LineAwesomeIcons.twitter,
                       color: Colors.blue,
                     ),
                   ],
