@@ -3,11 +3,14 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:taxi_app/misc.dart';
 import 'package:taxi_app/screeens/login.dart';
-
-import '../controllers/authentications.dart';
+import 'package:taxi_app/widgets/custom_logo_button.dart';
+import 'package:taxi_app/widgets/text_field.dart';
 
 class SignUp extends StatelessWidget {
-  Authentications authentications = Authentications();
+  final emailController = TextEditingController();
+  final password1Controller = TextEditingController();
+  final password2Controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,19 +26,19 @@ class SignUp extends StatelessWidget {
                 child: Icon(
                   Icons.pin_drop_rounded,
                   size: 100,
-                  color: Colors.indigo,
+                  color: Colors.indigo[900],
                 ),
               ),
               Center(
                 child: Text(
-                  "Taxi",
+                  "Fijo Taxi",
                   style: GoogleFonts.lato(
-                      color: Colors.indigo,
+                      color: Colors.indigo[900],
                       fontWeight: FontWeight.bold,
                       fontSize: 35),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Padding(
@@ -53,65 +56,19 @@ class SignUp extends StatelessWidget {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Card(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: TextField(
-                      keyboardType: TextInputType.emailAddress,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        focusedBorder: InputBorder.none,
-                        enabledBorder: InputBorder.none,
-                        errorBorder: InputBorder.none,
-                        disabledBorder: InputBorder.none,
-                        hintText: "Email",
-                      ),
-                    ),
-                  ),
-                ),
+              CustomTextField(
+                header: "Email",
+                controller: emailController,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Card(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: TextField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        focusedBorder: InputBorder.none,
-                        enabledBorder: InputBorder.none,
-                        errorBorder: InputBorder.none,
-                        disabledBorder: InputBorder.none,
-                        hintText: "Password",
-                      ),
-                    ),
-                  ),
-                ),
+              CustomTextField(
+                header: "Password",
+                controller: password1Controller,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Card(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: TextField(
-                      obscureText: true,
-                      keyboardType: TextInputType.visiblePassword,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        focusedBorder: InputBorder.none,
-                        enabledBorder: InputBorder.none,
-                        errorBorder: InputBorder.none,
-                        disabledBorder: InputBorder.none,
-                        hintText: "Confirm password",
-                      ),
-                    ),
-                  ),
-                ),
+              CustomTextField(
+                header: "Password",
+                controller: password2Controller,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Padding(
@@ -123,20 +80,19 @@ class SignUp extends StatelessWidget {
                         height: 40,
                         child: RaisedButton(
                             onPressed: () {
-                            
                               //  authentications.signup("vamsubala@gmail.com","vamsi199");
                               // It will print signed suceessfully and uid is balabla
                             },
                             child: Text("Sign Up",
                                 style:
                                     GoogleFonts.lato(color: Colors.grey[100])),
-                            color: Colors.indigo),
+                            color: Colors.indigo[900]),
                       ),
                     ),
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Center(
@@ -148,54 +104,28 @@ class SignUp extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 23),
                 child: Row(
                   children: [
-                    Expanded(
-                      child: Container(
-                        height: 50,
-                        child: Card(
-                          child: Icon(
-                            LineAwesomeIcons.google_logo,
-                            size: 30,
-                            color: Colors.red,
-                          ),
-                        ),
-                      ),
+                    const CustomLogoButton(
+                        icon: LineAwesomeIcons.google_logo, color: Colors.red),
+                    CustomLogoButton(
+                      icon: LineAwesomeIcons.facebook,
+                      color: Colors.blue[900],
                     ),
-                    Expanded(
-                      child: Container(
-                        height: 50,
-                        child: Card(
-                          child: Icon(
-                            LineAwesomeIcons.facebook,
-                            size: 30,
-                            color: Colors.blue[900],
-                          ),
-                        ),
-                      ),
+                    const CustomLogoButton(
+                      icon: LineAwesomeIcons.google_logo,
+                      color: Colors.blue,
                     ),
-                    Expanded(
-                      child: Container(
-                        height: 50,
-                        child: Card(
-                          child: Icon(
-                            LineAwesomeIcons.twitter,
-                            size: 30,
-                            color: Colors.blue,
-                          ),
-                        ),
-                      ),
-                    )
                   ],
                 ),
               ),
-              SizedBox(
-                height: 25,
+              const SizedBox(
+                height: 20,
               ),
               Center(
                 child: GestureDetector(
