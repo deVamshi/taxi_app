@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:taxi_app/screeens/login.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:taxi_app/screeens/person_details.dart';
+import 'package:taxi_app/screeens/signup.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.indigo,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Login(),
+      home: PersonDetails(),
     );
   }
 }

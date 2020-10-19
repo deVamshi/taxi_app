@@ -55,6 +55,7 @@ class Authentications {
     } catch (e) {
       print(e);
     }
+    return 5;
   }
 
   forgotpassword(String email) async {

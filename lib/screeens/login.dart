@@ -4,7 +4,7 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:taxi_app/misc.dart';
 import 'package:taxi_app/screeens/signup.dart';
 import 'package:taxi_app/widgets/custom_logo_button.dart';
-import 'package:taxi_app/widgets/text_field.dart';
+import 'package:taxi_app/widgets/custom_text_field.dart';
 
 class Login extends StatelessWidget {
   final _emailController = TextEditingController();
@@ -12,7 +12,6 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       backgroundColor: Colors.grey[100],
       body: Align(
@@ -86,8 +85,8 @@ class Login extends StatelessWidget {
                         height: 40,
                         child: RaisedButton(
                             onPressed: () {
-                               //  authentications.signin("vamsubala@gmail.com","vamsi199");
-                             // It will print signed suceessfully and uid is balabla
+                              //  authentications.signin("vamsubala@gmail.com","vamsi199");
+                              // It will print signed suceessfully and uid is balabla
                             },
                             child: Text("Sign in",
                                 style:
@@ -145,20 +144,21 @@ class Login extends StatelessWidget {
                   },
                   child: RichText(
                     text: TextSpan(
-                        text: "Don't have an account?  ",
-                        style: TextStyle(color: Colors.grey),
-                        children: [
-                          TextSpan(
-                            text: "Sign up",
-                            style: TextStyle(
-                                fontSize: 17,
-                                decoration: TextDecoration.underline,
-                                color: Colors.indigo),
-                          )
-                        ]),
+                      text: "Don't have an account?  ",
+                      style: TextStyle(color: Colors.grey),
+                      children: [
+                        TextSpan(
+                          text: "Sign up",
+                          style: TextStyle(
+                              fontSize: 17,
+                              decoration: TextDecoration.underline,
+                              color: Colors.indigo),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
