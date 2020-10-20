@@ -5,9 +5,8 @@ import 'package:taxi_app/controllers/authentications.dart';
 import 'package:taxi_app/misc.dart';
 import 'package:taxi_app/screeens/home_screen.dart';
 import 'package:taxi_app/screeens/login.dart';
-import 'package:taxi_app/screeens/welcome_screen.dart';
 import 'package:taxi_app/widgets/custom_logo_button.dart';
-import 'package:taxi_app/widgets/text_field.dart';
+import 'package:taxi_app/widgets/custom_text_field.dart';
 
 class SignUp extends StatelessWidget {
   final emailController = TextEditingController();
