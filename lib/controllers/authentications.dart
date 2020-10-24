@@ -39,7 +39,9 @@ class Authentications {
           .createUserWithEmailAndPassword(email: email, password: password);
 
       final User user = _auth.currentUser;
+
       print("sucessfully signed up with user uid ${user.uid}");
+
       return 0; // for succesfull registration
       //  Navigator.pushReplacement(
       //     context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
@@ -56,6 +58,19 @@ class Authentications {
       print(e);
     }
     return 5;
+  }
+
+  Future<void> send_email_verification_link() async {
+    await _auth.currentUser.sendEmailVerification();
+  }
+
+  Future<bool> check_email_verificaton() async {
+    await _auth.currentUser.reload();
+    return _auth.currentUser.emailVerified;
+  }
+
+  signout() async {
+    await FirebaseAuth.instance.signOut();
   }
 
   forgotpassword(String email) async {
