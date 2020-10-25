@@ -7,11 +7,9 @@ InputDecoration textFieldDecoration() {
     enabledBorder: InputBorder.none,
     errorBorder: InputBorder.none,
     disabledBorder: InputBorder.none,
-    // hintText: "$hintText",
-    // hintStyle: TextStyle(color: Colors.grey[400]
-    // ),
   );
 }
+
 
 Widget customTextFieldForDetails(
   String heading,
@@ -44,4 +42,9 @@ Widget customTextFieldForDetails(
       ],
     ),
   );
+}
+
+
+TextStyle profileTextStyle(){
+  return TextStyle(color: Colors.white, fontSize: 15);
 }

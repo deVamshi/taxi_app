@@ -81,7 +81,7 @@ class PersonDetails extends StatelessWidget {
                   child: Text("Next",
                       style: GoogleFonts.lato(
                           color: Colors.grey[100], fontSize: 20)),
-                  color: Colors.indigo[900]),
+                  color: buttonColor),
             ),
           ),
           const SizedBox(
