@@ -33,6 +33,7 @@ Widget customTextFieldForDetails(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: TextField(
+              textInputAction: TextInputAction.next,
               keyboardType: TextInputType.name,
               decoration: textFieldDecoration(),
             ),
